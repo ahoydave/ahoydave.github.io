@@ -1,8 +1,4 @@
-Hello and welcome to this blog.
-
-## This is a title
-
-And you can include links, like this [link to fast.ai](https://www.fast.ai). Posts will appear after this file. 
+Hello and welcome.
 
 You can also have _math_
 $$
