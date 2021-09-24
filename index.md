@@ -4,4 +4,4 @@
 
 layout: home
 ---
-Hello!
+I take a minimalist approach to both style and content.
