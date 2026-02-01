@@ -1,35 +1,26 @@
 ---
-# Dark hacker theme
+# Dark hacker theme for minima 2.5.x
 ---
 
-// Override minima's skin before import
-$brand-color: #4ade80;
-$brand-color-light: #86efac;
-$brand-color-dark: #22c55e;
+// Set minima variables before import
+$brand-color: #4ade80 !default;
+$brand-color-light: lighten($brand-color, 10%) !default;
+$brand-color-dark: darken($brand-color, 15%) !default;
 
-$site-title-color: #4ade80;
+$text-color: #e4e4e7 !default;
+$background-color: #18181b !default;
+$code-background-color: #27272a !default;
 
-$text-color: #e4e4e7;
-$background-color: #18181b;
-$code-background-color: #27272a;
+$grey-color: #a1a1aa !default;
+$grey-color-light: #3f3f46 !default;
+$grey-color-dark: #71717a !default;
 
-$link-base-color: #4ade80;
-$link-visited-color: #86efac;
-$link-hover-color: #22c55e;
+@import "minima";
 
-$border-color-01: #3f3f46;
-$border-color-02: #52525b;
-$border-color-03: #71717a;
+// ============================================
+// Dark Theme Overrides
+// ============================================
 
-$table-text-color: #e4e4e7;
-$table-zebra-color: #27272a;
-$table-header-bg-color: #3f3f46;
-$table-header-border: #52525b;
-$table-border-color: #3f3f46;
-
-@import "minima/skins/auto", "minima/initialize";
-
-// Base overrides for dark theme
 body {
   background-color: #18181b;
   color: #e4e4e7;
@@ -38,7 +29,7 @@ body {
 // Header
 .site-header {
   background-color: #18181b;
-  border-bottom: 1px solid #3f3f46;
+  border-bottom-color: #3f3f46;
 }
 
 .site-title {
@@ -47,18 +38,32 @@ body {
   font-weight: 600;
   letter-spacing: -0.5px;
 
+  &:visited {
+    color: #4ade80 !important;
+  }
+
   &:hover {
     color: #86efac !important;
     text-decoration: none;
   }
 }
 
-.site-nav .page-link {
-  color: #a1a1aa;
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+.site-nav {
+  background-color: #18181b;
+  border-color: #3f3f46;
 
-  &:hover {
-    color: #4ade80;
+  .page-link {
+    color: #a1a1aa;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+
+    &:hover {
+      color: #4ade80;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    background-color: #18181b;
+    border-color: #3f3f46;
   }
 }
 
@@ -67,14 +72,23 @@ body {
   background-color: #18181b;
 }
 
-.post-title, .post-link {
+.post-title,
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
   color: #fafafa;
   font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
 }
 
-.post-link:hover {
-  color: #4ade80;
-  text-decoration: none;
+.post-link {
+  color: #fafafa;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+
+  &:hover {
+    color: #4ade80;
+    text-decoration: none;
+  }
 }
 
 .post-meta {
@@ -83,12 +97,17 @@ body {
   font-size: 0.85rem;
 }
 
+.post-list-heading {
+  color: #fafafa;
+}
+
 // Code blocks
 pre, code {
   font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
   background-color: #27272a;
   border: 1px solid #3f3f46;
   border-radius: 4px;
+  color: #e4e4e7;
 }
 
 pre {
@@ -103,19 +122,24 @@ code {
 pre code {
   border: none;
   padding: 0;
+  background-color: transparent;
 }
 
-// Syntax highlighting overrides for dark theme
+// Syntax highlighting
 .highlight {
   background-color: #27272a;
+  border-radius: 4px;
 
-  .c, .c1, .cm { color: #71717a; } // comments
-  .k, .kd, .kn { color: #f472b6; } // keywords
-  .s, .s1, .s2 { color: #4ade80; } // strings
-  .n, .nf, .nb { color: #e4e4e7; } // names
-  .o { color: #a1a1aa; }           // operators
-  .mi, .mf { color: #fb923c; }     // numbers
-  .p { color: #a1a1aa; }           // punctuation
+  .c, .c1, .cm, .cs { color: #71717a; } // comments
+  .k, .kd, .kn, .kp, .kr, .kt { color: #f472b6; } // keywords
+  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx, .sr, .ss { color: #4ade80; } // strings
+  .n, .na, .nb, .nc, .nd, .ne, .nf, .ni, .nl, .nn, .no, .nt, .nv { color: #e4e4e7; } // names
+  .o, .ow { color: #a1a1aa; } // operators
+  .m, .mf, .mh, .mi, .mo, .il { color: #fb923c; } // numbers
+  .p { color: #a1a1aa; } // punctuation
+  .err { color: #ef4444; } // errors
+  .gd { color: #ef4444; } // deleted
+  .gi { color: #4ade80; } // inserted
 }
 
 // Links
@@ -134,12 +158,27 @@ a {
 // Footer
 .site-footer {
   background-color: #18181b;
-  border-top: 1px solid #3f3f46;
+  border-top-color: #3f3f46;
   color: #71717a;
+}
+
+.footer-heading {
+  color: #a1a1aa;
 }
 
 .footer-col-wrapper {
   color: #a1a1aa;
+}
+
+.contact-list,
+.social-media-list {
+  a {
+    color: #a1a1aa;
+
+    &:hover {
+      color: #4ade80;
+    }
+  }
 }
 
 // Images
@@ -158,15 +197,19 @@ a {
 }
 
 // Code cell styling (Jupyter)
-.language-python { border-left: 2px solid #f472b6; }
+.language-python {
+  border-left: 2px solid #f472b6;
+}
 
 .language-python + .language-plaintext {
   border-left: 2px solid #71717a;
   margin-left: 1rem !important;
 }
 
-.language-python + .language-plaintext code { background-color: #1f1f23 !important; }
-.language-python + .language-plaintext pre { background-color: #1f1f23 !important; }
+.language-python + .language-plaintext code,
+.language-python + .language-plaintext pre {
+  background-color: #1f1f23 !important;
+}
 
 .input_area pre, .input_area div {
   margin-bottom: 0.1rem !important;
@@ -183,7 +226,10 @@ a {
   background-color: #1f1f23 !important;
 }
 
-.input_area pre { border-left: 2px solid #f472b6; }
+.input_area pre {
+  border-left: 2px solid #f472b6;
+}
+
 .output_area pre {
   border-left: 2px solid #71717a;
   margin-left: 1rem !important;
@@ -195,7 +241,9 @@ a {
   margin-top: 1rem !important;
 }
 
-.codecell table { width: auto; }
+.codecell table {
+  width: auto;
+}
 
 // Projects grid
 .projects-grid {
@@ -215,27 +263,27 @@ a {
   &:hover {
     border-color: #4ade80;
   }
-}
 
-.project-card h3 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 
-  a {
-    color: #fafafa;
-    text-decoration: none;
-    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+    a {
+      color: #fafafa;
+      text-decoration: none;
+      font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
 
-    &:hover {
-      color: #4ade80;
+      &:hover {
+        color: #4ade80;
+      }
     }
   }
-}
 
-.project-card p {
-  color: #a1a1aa;
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
+  p {
+    color: #a1a1aa;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .project-tags {
@@ -263,8 +311,6 @@ a {
 
 // SVG icons
 .svg-icon {
-  padding: 0;
-  margin-right: 4px;
   fill: #71717a;
 }
 
@@ -275,6 +321,7 @@ a:hover .svg-icon {
 // Tables
 table {
   border-collapse: collapse;
+  color: #e4e4e7;
 
   th, td {
     padding: 0.5rem 1rem;
@@ -303,4 +350,18 @@ hr {
   border: none;
   border-top: 1px solid #3f3f46;
   margin: 2rem 0;
+}
+
+// Home page post list
+.home {
+  .post-list {
+    .post-meta {
+      color: #71717a;
+    }
+  }
+}
+
+// Wrapper
+.wrapper {
+  max-width: calc(800px - (30px * 2));
 }
