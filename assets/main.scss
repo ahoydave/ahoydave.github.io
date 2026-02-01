@@ -1,67 +1,306 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
+# Dark hacker theme
 ---
 
-@import "{{ site.theme }}";
+// Override minima's skin before import
+$brand-color: #4ade80;
+$brand-color-light: #86efac;
+$brand-color-dark: #22c55e;
 
+$site-title-color: #4ade80;
+
+$text-color: #e4e4e7;
+$background-color: #18181b;
+$code-background-color: #27272a;
+
+$link-base-color: #4ade80;
+$link-visited-color: #86efac;
+$link-hover-color: #22c55e;
+
+$border-color-01: #3f3f46;
+$border-color-02: #52525b;
+$border-color-03: #71717a;
+
+$table-text-color: #e4e4e7;
+$table-zebra-color: #27272a;
+$table-header-bg-color: #3f3f46;
+$table-header-border: #52525b;
+$table-border-color: #3f3f46;
+
+@import "minima/skins/auto", "minima/initialize";
+
+// Base overrides for dark theme
+body {
+  background-color: #18181b;
+  color: #e4e4e7;
+}
+
+// Header
+.site-header {
+  background-color: #18181b;
+  border-bottom: 1px solid #3f3f46;
+}
+
+.site-title {
+  color: #4ade80 !important;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+
+  &:hover {
+    color: #86efac !important;
+    text-decoration: none;
+  }
+}
+
+.site-nav .page-link {
+  color: #a1a1aa;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+
+  &:hover {
+    color: #4ade80;
+  }
+}
+
+// Content
+.page-content {
+  background-color: #18181b;
+}
+
+.post-title, .post-link {
+  color: #fafafa;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+}
+
+.post-link:hover {
+  color: #4ade80;
+  text-decoration: none;
+}
+
+.post-meta {
+  color: #71717a;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+  font-size: 0.85rem;
+}
+
+// Code blocks
+pre, code {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+  background-color: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 4px;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+code {
+  padding: 0.2em 0.4em;
+}
+
+pre code {
+  border: none;
+  padding: 0;
+}
+
+// Syntax highlighting overrides for dark theme
+.highlight {
+  background-color: #27272a;
+
+  .c, .c1, .cm { color: #71717a; } // comments
+  .k, .kd, .kn { color: #f472b6; } // keywords
+  .s, .s1, .s2 { color: #4ade80; } // strings
+  .n, .nf, .nb { color: #e4e4e7; } // names
+  .o { color: #a1a1aa; }           // operators
+  .mi, .mf { color: #fb923c; }     // numbers
+  .p { color: #a1a1aa; }           // punctuation
+}
+
+// Links
+a {
+  color: #4ade80;
+
+  &:visited {
+    color: #86efac;
+  }
+
+  &:hover {
+    color: #22c55e;
+  }
+}
+
+// Footer
+.site-footer {
+  background-color: #18181b;
+  border-top: 1px solid #3f3f46;
+  color: #71717a;
+}
+
+.footer-col-wrapper {
+  color: #a1a1aa;
+}
+
+// Images
 .post img {
-        display: block;
-        border:1px solid #021a40;
-        vertical-align: top;
-        margin-left: auto;
-        margin-right: auto;
+  display: block;
+  border: 1px solid #3f3f46;
+  border-radius: 4px;
+  margin: 1.5rem auto;
 }
 
 .post figcaption {
   text-align: center;
-  font-size: .8rem;
+  font-size: 0.85rem;
   font-style: italic;
-  color: light-grey;
+  color: #71717a;
 }
 
-.language-python { border-left: 1px solid lightcoral; }
+// Code cell styling (Jupyter)
+.language-python { border-left: 2px solid #f472b6; }
 
 .language-python + .language-plaintext {
-        border-left: 1px solid grey;
-        margin-left: 1rem !important;
+  border-left: 2px solid #71717a;
+  margin-left: 1rem !important;
 }
-.language-python + .language-plaintext code { background-color: white !important; }
-.language-python + .language-plaintext pre  { background-color: white !important; }
 
-// for Jupyter Notebook HTML Code Cells from https://www.fast.ai/public/css/hyde.css
+.language-python + .language-plaintext code { background-color: #1f1f23 !important; }
+.language-python + .language-plaintext pre { background-color: #1f1f23 !important; }
 
 .input_area pre, .input_area div {
-        margin-bottom:0.1rem !important;
-        margin-top:0.1rem !important;
-        padding-bottom:0 !important;
-        padding-top:0 !important;
+  margin-bottom: 0.1rem !important;
+  margin-top: 0.1rem !important;
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
 }
+
 .output_area pre, .output_area div {
-        margin-bottom:0.1rem !important;
-        margin-top:0.1rem !important;
-        padding-bottom:0 !important;
-        padding-top:0 !important;
-        background-color: white !important;
+  margin-bottom: 0.1rem !important;
+  margin-top: 0.1rem !important;
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+  background-color: #1f1f23 !important;
 }
-.input_area pre {
-        border-left: 1px solid lightcoral;
-}
+
+.input_area pre { border-left: 2px solid #f472b6; }
 .output_area pre {
-        border-left: 1px solid grey;
-        margin-left: 1rem !important;
+  border-left: 2px solid #71717a;
+  margin-left: 1rem !important;
 }
+
 .codecell {
-        border-right: 2px solid lightgrey;
-        margin-bottom:1rem !important;
-        margin-top:1rem !important;
-        padding-bottom:0 !important;
-        padding-top:0 !important;
+  border-right: 2px solid #3f3f46;
+  margin-bottom: 1rem !important;
+  margin-top: 1rem !important;
 }
 
 .codecell table { width: auto; }
 
-.svg-icon {
-        padding: 0px;
-        margin-right: 2px;
+// Projects grid
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
+.project-card {
+  background-color: #27272a;
+  border: 1px solid #3f3f46;
+  border-radius: 6px;
+  padding: 1.5rem;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: #4ade80;
+  }
+}
+
+.project-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+
+  a {
+    color: #fafafa;
+    text-decoration: none;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+
+    &:hover {
+      color: #4ade80;
+    }
+  }
+}
+
+.project-card p {
+  color: #a1a1aa;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-tag {
+  background-color: #3f3f46;
+  color: #4ade80;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+}
+
+// Intro text styling
+.intro {
+  font-size: 1.1rem;
+  color: #a1a1aa;
+  margin-bottom: 2rem;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+}
+
+// SVG icons
+.svg-icon {
+  padding: 0;
+  margin-right: 4px;
+  fill: #71717a;
+}
+
+a:hover .svg-icon {
+  fill: #4ade80;
+}
+
+// Tables
+table {
+  border-collapse: collapse;
+
+  th, td {
+    padding: 0.5rem 1rem;
+    border: 1px solid #3f3f46;
+  }
+
+  th {
+    background-color: #27272a;
+  }
+
+  tr:nth-child(even) {
+    background-color: #1f1f23;
+  }
+}
+
+// Blockquotes
+blockquote {
+  border-left: 3px solid #4ade80;
+  padding-left: 1rem;
+  color: #a1a1aa;
+  font-style: italic;
+}
+
+// Horizontal rule
+hr {
+  border: none;
+  border-top: 1px solid #3f3f46;
+  margin: 2rem 0;
+}
