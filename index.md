@@ -1,7 +1,5 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
 ---
-I take a minimalist approach to both style and content.
+
+<p class="intro">Software engineer. I like building things and occasionally write about them.</p>
