@@ -245,62 +245,6 @@ a {
   width: auto;
 }
 
-// Projects grid
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.project-card {
-  background-color: #27272a;
-  border: 1px solid #3f3f46;
-  border-radius: 6px;
-  padding: 1.5rem;
-  transition: border-color 0.2s ease;
-
-  &:hover {
-    border-color: #4ade80;
-  }
-
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-
-    a {
-      color: #fafafa;
-      text-decoration: none;
-      font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
-
-      &:hover {
-        color: #4ade80;
-      }
-    }
-  }
-
-  p {
-    color: #a1a1aa;
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-  }
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.project-tag {
-  background-color: #3f3f46;
-  color: #4ade80;
-  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
-  font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 3px;
-}
-
 // Intro text styling
 .intro {
   font-size: 1.1rem;

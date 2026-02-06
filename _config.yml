@@ -18,12 +18,6 @@ plugins:
   - jekyll-octicons
   - jekyll-github-metadata
 
-# Projects collection
-collections:
-  projects:
-    output: false
-    sort_by: weight
-
 # Markdown processing
 highlighter: rouge
 markdown: kramdown
